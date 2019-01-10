@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">SchoolFinder</string>
+    <string name="title_activity_maps">School Finder</string>
+    <string name="title_activity_user_location">Your Location</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_place_picker">Pick Your Location</string>
+    <string name="title_activity_location_picker">Map</string>
+
+    <string-array name="sort_types">
+        <item>Distance</item>
+        <item>Religion</item>
+        <item>Gender Type</item>
+        <item>School Category</item>
+        <item>Language Medium</item>
+        <item>Public Ratings</item>
+    </string-array>
+
+    <string-array name="electionreg_time">
+        <item>5 Years</item>
+        <item>4 Years</item>
+        <item>3 Years</item>
+        <item>2 Years</item>
+        <item>1 Year</item>
+        <item>0 Years</item>
+    </string-array>
+
+</resources>

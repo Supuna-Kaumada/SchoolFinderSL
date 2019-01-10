@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdditionalDetailsSetupActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Additional Details"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:textSize="25sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:textAlignment="center"
+                    android:text="Please understand that the final marks will be calculated from the selections you do here. \n Please make the choices accurate as per your knowledge to have accurate results."
+                    android:layout_margin="10dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I. The main and additional documents in proof of residence."
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="18dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimaryDark"
+                    android:text="a. Select Main Document You Have as a proof of Residency"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginStart="15dp"
+                    android:textStyle="bold"/>
+
+                <RadioGroup
+                    android:id="@+id/residenceMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="20dp">
+
+                    <RadioButton
+                        android:id="@+id/radio_rmTitleDeeds"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Title Deeds"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:layout_marginTop="5dp"/>
+                    <RadioButton android:id="@+id/radio_rmGiftCert"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Deed of Gift Certificates of Ownership"
+                        android:layout_marginTop="5dp"/>
+                    <RadioButton android:id="@+id/radio_rmGovAward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Government awards (in case of the owner is deceased the applicant/spouse should be named as the successor and need to be endorsed the same by the relevant authority)"
+                        android:layout_marginTop="5dp"/>
+                    <RadioButton android:id="@+id/radio_rmTempleDevala"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Documents issued under Temples and Devala Act by the Commissioner General of Buddhist affairs or the certificates issued by the chief incumbent of a temple certified by the Commissioner General of Buddhist affairs." />
+                    <RadioButton android:id="@+id/radio_rmDeclaration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Declaration deeds more than 10 years confirmed by extracts" />
+                    <RadioButton android:id="@+id/radio_rmLoans"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Houses purchased on housing loans / hire purchased schemes" />
+                    <RadioButton android:id="@+id/radio_rmLeaseBond"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Continuously registered lease bond. (if required the ownership of the permanent owner need to be proved by the extracts and he lease bond should be in valid for at least six(06)months beyond the closing date of application) / Government Quarters List (The letter of certification by the department head. Residents in bachelor’s quarters are not applicable) / documents to confirm as lease residents under the housing rental act." />
+                    <RadioButton android:id="@+id/radio_rmother"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Other Documents \n It is mandatory that these documents be valid for continuously five preceding years or more, applicant must possess at least three said documents to receive marks for this." />
+                    <LinearLayout
+                        android:id="@+id/rmOtherLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:orientation="vertical">
+                        <CheckBox
+                            android:id="@+id/rmother_electricity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:buttonTint="@color/colorPrimaryDark"
+                            android:text="Electricity bills in the name of applicant/spouse" />
+                        <CheckBox
+                            android:id="@+id/rmother_water"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:buttonTint="@color/colorPrimaryDark"
+                            android:text="Water bills in the name of applicant/spouse" />
+                        <CheckBox
+                            android:id="@+id/rmother_taxbills"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:buttonTint="@color/colorPrimaryDark"
+                            android:text="Property tax bills in the name of applicant/spouse" />
+                        <CheckBox
+                            android:id="@+id/rmother_birthcertif"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:buttonTint="@color/colorPrimaryDark"
+                            android:text="Birth certificates of applicant/spouse" />
+                    </LinearLayout>
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/rmOwnLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="The ownership of the place of residence is in the name of"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"/>
+
+                    <RadioGroup
+                        android:id="@+id/residenceOwn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
+                        <RadioButton android:id="@+id/radio_ApplSpouse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Applicant/Spouse"
+                            android:buttonTint="@color/colorPrimaryDark"/>
+                        <RadioButton android:id="@+id/radio_MotherFather"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mother/Father of the Applicant/Spouse"
+                            android:buttonTint="@color/colorPrimaryDark"/>
+                        <RadioButton android:id="@+id/radio_OtherOwn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Other One"
+                            android:buttonTint="@color/colorPrimaryDark"/>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rmTimeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="How many years does the Residence vested in the name of the applicant/spouse/their parents"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"/>
+
+                    <RadioGroup
+                        android:id="@+id/residenceTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
+                        <RadioButton android:id="@+id/radio_rmyMorethanFive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="More Than 5 Years"
+                            android:buttonTint="@color/colorPrimaryDark"/>
+                        <RadioButton android:id="@+id/radio_rmyFiveFour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4-5 Years"
+                            android:buttonTint="@color/colorPrimaryDark"/>
+                        <RadioButton android:id="@+id/radio_rmyFourThree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4-3 Years"
+                            android:buttonTint="@color/colorPrimaryDark"/>
+                        <RadioButton android:id="@+id/radio_rmyThreeTwo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3-2 Years"
+                            android:buttonTint="@color/colorPrimaryDark"/>
+                        <RadioButton android:id="@+id/radio_rmyTwoOne"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2-1 Years"
+                            android:buttonTint="@color/colorPrimaryDark"/>
+                        <RadioButton android:id="@+id/radio_rmyOneSixm"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12-6 Months"
+                            android:buttonTint="@color/colorPrimaryDark"/>
+                        <RadioButton android:id="@+id/radio_rmyLessthanSix"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Less than 6 Months"
+                            android:buttonTint="@color/colorPrimaryDark"/>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimaryDark"
+                    android:text="b. Check Additional documents in the name of applicant/spouse of place of living"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginStart="15dp"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <CheckBox
+                        android:id="@+id/ra_nicdl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="National Identity Card or Driving License" />
+                    <CheckBox
+                        android:id="@+id/ra_ftelebill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Fixed Telephone Line Bills" />
+                    <CheckBox
+                        android:id="@+id/ra_schleaving"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="School Leaving Certificate" />
+                    <CheckBox
+                        android:id="@+id/ra_marrycertif"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Marriage Certificate" />
+                    <CheckBox
+                        android:id="@+id/ra_samurdicard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Samurdi Card" />
+                    <CheckBox
+                        android:id="@+id/ra_lifeinsurance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Life Insurance Deed" />
+                    <CheckBox
+                        android:id="@+id/ra_childbirthcertf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Child’s Birth Certificate" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="II. Registration in the Electoral Register in proof of Residency"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="18dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimaryDark"
+                    android:text="Five Recent Preceding Years From Applying Year Shall be Considered"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginStart="15dp"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:id="@+id/elec_father_Layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:id="@+id/elecreg_father"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Father" />
+
+                    <Spinner
+                        android:id="@+id/spinnerFatherElecRegTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:tooltipText="Please Select Time Period"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/elec_mother_Layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:id="@+id/elecreg_mother"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Mother" />
+
+                    <Spinner
+                        android:id="@+id/spinnerMotherElecRegTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:tooltipText="Please Select Time Period"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/elec_leagalParent_Layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:id="@+id/elecreg_leagParent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Leagal Parent" />
+
+                    <Spinner
+                        android:id="@+id/spinnerleagParentElecRegTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:tooltipText="Please Select Time Period"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/update_addtionDet_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Update Details"
+                android:shadowColor="@android:color/transparent"
+                android:padding="15dp"
+                android:layout_margin="10dp"
+                android:textColor="#FFF"
+                android:background="@drawable/shapebtn2"/>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+</RelativeLayout>
