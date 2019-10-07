@@ -11,6 +11,16 @@
     android:padding="20dp"
     tools:context="com.sccodesoft.schoolfinder.RegisterActivity">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
