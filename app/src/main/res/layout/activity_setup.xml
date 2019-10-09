@@ -21,10 +21,14 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/ic_person_add_black_24dp"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_margin="10dp"
+        android:id="@+id/profile_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_person_add_black_24dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#3b5998"/>
 
     <EditText
         android:id="@+id/user_name"

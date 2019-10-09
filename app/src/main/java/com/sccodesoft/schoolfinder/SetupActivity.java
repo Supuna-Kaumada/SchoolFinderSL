@@ -37,6 +37,7 @@ public class SetupActivity extends AppCompatActivity {
     private Button saveDetails;
     private EditText userName,userNIC;
     private TextView userLocation;
+    private de.hdodenhof.circleimageview.CircleImageView profImage;
 
     private ProgressDialog Loadingbar;
 
