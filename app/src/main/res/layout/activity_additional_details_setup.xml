@@ -49,6 +49,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="I. The main and additional documents in proof of residence."
@@ -57,6 +58,7 @@
                     android:textSize="18dp"/>
 
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/colorPrimaryDark"
@@ -197,6 +199,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_marginTop="5dp"
                     android:id="@+id/rmTimeLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -256,6 +259,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/colorPrimaryDark"
@@ -320,6 +324,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="II. Registration in the Electoral Register in proof of Residency"
