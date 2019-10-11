@@ -1,8 +1,6 @@
 package com.sccodesoft.schoolfinder;
 
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
@@ -15,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +31,6 @@ public class MainActivity extends AppCompatActivity
     private TabLayout mTabLayout;
     private TabsAccessorAdapter mTabsAccessorAdapter;
 
-    private int schoolcount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -60,38 +56,13 @@ public class MainActivity extends AppCompatActivity
         mTabLayout.setupWithViewPager(mViewPager);
 
 
-        schoolsRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                if(dataSnapshot.exists())
-                {
-                    schoolcount = (int)dataSnapshot.getChildrenCount();
-                }
-                else {
-                    schoolcount = 0;
-                }
-
-                Log.i("School Count in DB is :",Integer.toString(schoolcount));
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
     }
 
 
     @Override
     protected void onStart() {
         super.onStart();
-
-
     }
-
 
 
     @Override
