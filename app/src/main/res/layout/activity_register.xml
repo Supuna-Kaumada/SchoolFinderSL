@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
-    android:orientation="vertical"
-    android:screenOrientation="portrait"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="20dp"
+    android:screenOrientation="portrait"
     tools:context="com.sccodesoft.schoolfinder.RegisterActivity">
 
     <TextView
@@ -24,8 +23,8 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/school"
-        android:contentDescription="TODO"/>
+        android:contentDescription="TODO"
+        android:src="@drawable/school" />
 
     <EditText
         android:id="@+id/reg_email"
@@ -33,9 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/shapeinput"
+        android:drawableStart="@drawable/ic_email"
         android:drawableLeft="@drawable/ic_email"
         android:drawablePadding="10dp"
-        android:drawableStart="@drawable/ic_email"
         android:hint="Email"
         android:padding="15dp"
         android:textColor="@color/colorPrimaryDark"
@@ -81,10 +80,10 @@
         android:id="@+id/reg_create_act_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="0dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="0dp"
         android:background="@drawable/shapebtn2"
         android:padding="15dp"
         android:shadowColor="@android:color/transparent"
@@ -95,9 +94,9 @@
         android:id="@+id/reg_already_have_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Already Have An Account? Login Here"
         android:textAlignment="center"
-        android:layout_marginTop="10dp"
         android:textColor="@color/colorPrimaryDark" />
 
 </LinearLayout>

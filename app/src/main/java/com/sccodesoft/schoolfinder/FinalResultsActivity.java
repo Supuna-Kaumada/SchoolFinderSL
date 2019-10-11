@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -23,9 +24,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class FinalResultsActivity extends AppCompatActivity {
 
@@ -333,35 +344,81 @@ public class FinalResultsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Loadingbar.setTitle("Saving");
-                Loadingbar.setMessage("Please Wait While We are Saving Your Search..");
-                Loadingbar.show();
-                Loadingbar.setCanceledOnTouchOutside(true);
+                saveHistory(currentuserid);
 
-                Calendar calendar = Calendar.getInstance();
-                SimpleDateFormat mdformat = new SimpleDateFormat("HH:mm:ss");
-                String strDate = mdformat.format(calendar.getTime());
+            }
+        });
 
-                String searchID = SchoolKeyF.getText().toString()+strDate;
+    }
 
-                HashMap shistoryMap = new HashMap();
-                shistoryMap.put("stype", "Full Mark");
-                shistoryMap.put("school", SchoolNameF.getText().toString());
-                shistoryMap.put("address", SchoolAddresF.getText().toString());
-                shistoryMap.put("marks", totResultMarks.getText().toString());
+    private void saveHistory(String currentuserid) {
 
-                rootRef.child("Users").child(currentuserid).child("Searchhistory").child(searchID).updateChildren(shistoryMap).addOnCompleteListener(new OnCompleteListener() {
+        Loadingbar.setTitle("Saving");
+        Loadingbar.setMessage("Please Wait While We are Saving Your Search..");
+        Loadingbar.show();
+        Loadingbar.setCanceledOnTouchOutside(true);
+
+        String[] datetime = {null};
+
+        String url = "http://worldtimeapi.org/api/timezone/Asia/Colombo";
+
+        OkHttpClient client = new OkHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .header("Content-Type", "application/json")
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.i("Error", e.getMessage());
+                Toast.makeText(FinalResultsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+
+                FinalResultsActivity.this.runOnUiThread(new Runnable() {
                     @Override
-                    public void onComplete(@NonNull Task task) {
-                        if (task.isSuccessful()) {
+                    public void run() {
 
-                            SendUserToMainActivity();
-                            Toast.makeText(FinalResultsActivity.this, "Search saved Successfully..", Toast.LENGTH_SHORT).show();
-                            Loadingbar.dismiss();
+                        try {
+                            final String mMessage = response.body().string();
+                            JSONObject responseObj = new JSONObject(mMessage);
+                            datetime[0] = responseObj.getString("datetime");
 
-                        } else {
-                            Loadingbar.dismiss();
-                            String message = task.getException().getMessage();
+                            String strDateTime = datetime[0].replaceAll("[^a-zA-Z0-9_-]", "");
+
+                            String searchID = SchoolKeyF.getText().toString()+strDateTime;
+
+                            HashMap shistoryMap = new HashMap();
+                            shistoryMap.put("stype", "Full Mark");
+                            shistoryMap.put("school", SchoolNameF.getText().toString());
+                            shistoryMap.put("address", SchoolAddresF.getText().toString());
+                            shistoryMap.put("marks", totResultMarks.getText().toString());
+
+                            rootRef.child("Users").child(currentuserid).child("Searchhistory").child(searchID).updateChildren(shistoryMap).addOnCompleteListener(new OnCompleteListener() {
+                                @Override
+                                public void onComplete(@NonNull Task task) {
+                                    if (task.isSuccessful()) {
+
+                                        SendUserToMainActivity();
+                                        Toast.makeText(FinalResultsActivity.this, "Search saved Successfully..", Toast.LENGTH_SHORT).show();
+                                        Loadingbar.dismiss();
+
+                                    } else {
+                                        Loadingbar.dismiss();
+                                        String message = task.getException().getMessage();
+                                    }
+
+                                }
+                            });
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
 
                     }
