@@ -163,11 +163,15 @@ public class SetupActivity extends AppCompatActivity {
         String uNIC = userNIC.getText().toString();
         String uAddress = userLocation.getText().toString();
 
+<<<<<<< HEAD
         if(imageUri==null)
         {
             Toast.makeText(this, "Please Select Your Profile Image..", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(uName))
+=======
+        if(TextUtils.isEmpty(uName))
+>>>>>>> 45f5183a592ff764e1a50e6c8edc8decbc6e4aa0
         {
             Toast.makeText(this, "Please Enter Your Name..", Toast.LENGTH_SHORT).show();
         }
